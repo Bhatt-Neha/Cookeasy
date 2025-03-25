@@ -1,0 +1,297 @@
+.pageContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  height: fit-content;
+}
+
+.filters {
+  h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.filterSection {
+  margin-bottom: 2rem;
+
+  h3 {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+  span {
+    font-size: 1rem;
+    color: #666;
+  }
+}
+
+.mainContent {
+  flex: 1;
+}
+
+.cuisineGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.cuisineCard {
+  position: relative;
+  width: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.cuisineImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.deleteIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  padding: 5px;
+  transition: background 0.3s, transform 0.2s ease-in-out;
+
+  &:hover {
+    background: rgba(255, 0, 0, 0.8);
+    transform: scale(1.1);
+  }
+}
+
+
+.cuisineInfo {
+  padding: 1.5rem;
+
+  h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.viewButton {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #333;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cuisineGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .cuisineGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageContainer {
+    padding: 0.5rem;
+  }
+
+  .cuisineInfo {
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.loadingContainer, .errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.errorContainer {
+  p {
+    color: #dc3545;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.retryButton {
+  padding: 0.8rem 2rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #333;
+  }
+} 
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  width: 500px;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalForm label {
+  margin-bottom: 8px;
+  margin-top: 10px;
+}
+
+.modalForm input,
+.modalForm textarea {
+  margin-bottom: 12px;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalButtons button {
+  width: 100px;
+  padding: 10px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modalButtons button:hover {
+  background-color: #000;
+}
+
+.addRecipeButton {
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 150px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+
