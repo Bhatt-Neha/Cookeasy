@@ -5,11 +5,12 @@ A modern web application for connecting users with professional chefs for cookin
 ## Features
 
 - User registration and authentication
-- Browse different cuisines (Italian, Indian, etc.)
+- Browse different cuisines (Italian, Indian, Mexican etc.)
 - View recipes and chef profiles
 - Check chef availability
 - Read ratings and reviews
 - Book chefs based on availability
+- Real time email functionality integration with system
 
 ## Tech Stack
 
@@ -71,21 +72,28 @@ A modern web application for connecting users with professional chefs for cookin
 
 ```
 cookeasy/
-├── src/                    # Frontend source code
-│   ├── app/               # Next.js app directory
-│   ├── components/        # React components
-│   ├── styles/           # SCSS styles
-│   ├── lib/              # Utility functions
-│   ├── types/            # TypeScript types
-│   └── utils/            # Helper functions
+├── frontend/              # Frontend source code
+│   ├── public/          # Public assets (images, icons, etc.)
+│   ├── src/             # Next.js app directory
+│   │   ├── app/         # Next.js app directory
+│   │   ├── components/  # React components
+│   │   ├── styles/      # SCSS styles
+│   │   ├── lib/         # Utility functions
+│   │   ├── types/       # TypeScript types
+│   │   └── utils/       # Helper functions
 ├── backend/              # Backend source code
+│   ├── config/          # Database configuration
 │   ├── src/             # Backend source files
-│   │   ├── entities/    # TypeORM entities
 │   │   ├── controllers/ # Route controllers
 │   │   ├── routes/      # API routes
-│   │   └── services/    # Business logic
-│   └── config/          # Backend configuration
-└── public/              # Static files
+│   │   ├── services/    # Business logic
+│   │   ├── models/      # Database models
+│   │   ├── migrations/  # Database migrations
+│   │   ├── seeders/     # Database seeders
+│   │   ├── templates/   # Email and document templates
+│   │   ├── middleware/  # Authentication middleware
+│   │   ├── utils/       # Utility functions
+
 ```
 
 ## Contributing
