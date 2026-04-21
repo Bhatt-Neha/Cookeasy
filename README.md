@@ -43,9 +43,9 @@ A modern web application for connecting users with professional chefs for cookin
 
 4. Create a `.env` file in the backend directory with the following variables:
    ```
-   DATABASE_URL=postgresql://username:password@localhost:5432/cookeasy
+   DATABASE_URL=postgresql://username:password/db_name
    JWT_SECRET=your_jwt_secret
-   PORT=5000
+   PORT=port_numebr
    ```
 
 5. Create the PostgreSQL database:
